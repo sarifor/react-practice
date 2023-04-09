@@ -22,6 +22,14 @@ class EventPractice extends Component {
                         }
                     }
                 />
+                <button onClick={
+                    () => { // Why is 'e' not used?
+                        alert(this.state.message);
+                        this.setState({
+                            message: ''
+                        });
+                    }
+                }>Check</button>
             </div>
         );
     }
