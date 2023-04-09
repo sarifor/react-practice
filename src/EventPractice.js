@@ -1,8 +1,27 @@
 import React, { Component } from 'react';
 
 class EventPractice extends Component {
-    state = { // Why do not use constructor for state in class component?
+    state = {
         message: ''
+    }
+
+    constructor(props) {
+        super(props);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleChange(e) {
+        this.setState({
+            message: e.target.value
+        });
+    }
+
+    handleClick() {
+        alert(this.state.message);
+        this.setState({
+            message: ''
+        });
     }
 
     render() {
@@ -14,21 +33,12 @@ class EventPractice extends Component {
                     name="message"
                     placeholder="Write Anything you want"
                     value={this.state.message}                
-                    onChange={ // Whenever write something, the value will be shown on Console Log
-                        (e) => {
-                            this.setState({
-                                message: e.target.value
-                            })
-                        }
+                    onChange={
+                        this.handleChange
                     }
                 />
                 <button onClick={
-                    () => { // Why is 'e' not used?
-                        alert(this.state.message);
-                        this.setState({
-                            message: ''
-                        });
-                    }
+                    this.handleClick
                 }>Check</button>
             </div>
         );
