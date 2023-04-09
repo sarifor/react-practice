@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import Comment from './Comment';
+import EventPractice from './EventPractice';
 
 class App extends Component {
     render() {
         return (
-            <div>
-                <Comment color="grey" />
-            </div>
+            <EventPractice />
         );
     }
 }
