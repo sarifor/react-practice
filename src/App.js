@@ -6,7 +6,7 @@ class App extends Component {
 
     _test = () => {
         const key = config.TEST_KEY
-        console.log(key);
+        console.log(key); // It's just an arbitrary setence for test commit
     }
 
     render() {

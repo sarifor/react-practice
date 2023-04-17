@@ -1,3 +1,3 @@
 export const config = {
-    TEST_KEY: '***REMOVED***',
+    TEST_KEY: '**Deleted**',
 };
