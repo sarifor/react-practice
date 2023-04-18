@@ -43,6 +43,7 @@ jobs:
 
       - name: Deploy React Application to GitHub pages
         run: |
+          git pull origin gh-pages
           git subtree push --prefix build/ origin gh-pages
           
           
