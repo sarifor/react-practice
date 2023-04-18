@@ -1,0 +1,37 @@
+name: Automatically Deployment
+
+on: [push]
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+
+    name: Deploying to GitHub Pages
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Generate Environment Variables File for Production
+        run: |
+          echo "TEST_SECRET=$TEST_SECRET" >> .env.production
+        env:
+          TEST_SECRET: ${{ secrets.TEST_SECRET }}
+
+      - name: Install Dependencies
+        run: |
+          npm install
+
+      - name: Build React Application
+        run: npm run build
+        # Add some command to fix to 'static/js'.
+
+      - name: Deploy React Application to Surge
+        run: |
+          echo ${{ secrets.TEST_SECRET }}
+          git subtree push --prefix build/ origin gh-pages
+          
+          
