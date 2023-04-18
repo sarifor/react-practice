@@ -43,7 +43,6 @@ jobs:
 
       - name: Deploy React Application to GitHub pages
         run: |
-          echo ${{ secrets.TEST_SECRET }}
           git subtree push --prefix build/ origin gh-pages
           
           
