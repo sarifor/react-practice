@@ -39,11 +39,11 @@ jobs:
 
       - name: Build React Application
         run: npm run build
-        # Add some command to fix to 'static/js'.
+        # Add some command here to fix to 'static/js'.
 
       - name: Deploy React Application to GitHub pages
-        run: |
-          git pull origin gh-pages
-          git subtree push --prefix build/ origin gh-pages
-          
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
           
