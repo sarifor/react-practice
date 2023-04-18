@@ -39,8 +39,14 @@ jobs:
 
       - name: Build React Application
         run: npm run build
-        # Add some command here to fix to 'static/js'.
-
+       
+      - name: Find and Replace
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          find: "/static/js/main"
+          replace: "static/js/main"
+          include: "index.html"
+          
       - name: Deploy React Application to GitHub pages
         uses: peaceiris/actions-gh-pages@v3
         with:
