@@ -32,10 +32,10 @@ jobs:
 
       - name: Assign value into .env
         run: echo "This is my old env object value, ${{ env.key }}"
-        env: 
-          key: ${{ secrets.TEST_SECRET }}
 
       - name: Print .env
+        env: 
+          key: ${{ secrets.TEST_SECRET }}      
         run: echo "This is my new env object value, ${{ env.key }}"
 
       # - name: Generate Environment Variables File for Production
