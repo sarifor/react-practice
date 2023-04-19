@@ -2,7 +2,7 @@ name: Automatically Deployment
 
 on: [push]
 
-env.production:
+env:
   REACT_APP_KEY: ${{ secrets.TEST_SECRET }}
 
 jobs:

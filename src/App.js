@@ -8,11 +8,11 @@ class App extends Component {
         console.log(process.env.REACT_APP_KEY);
         // console.log(key); // It's just an arbitrary setence for test commit
 
-        if (key === "testtest") {
+        /* if (key === "testtest") {
             console.log(true);
         } else {
             console.log(false);
-        }
+        } */
     }
 
     render() {
