@@ -30,13 +30,8 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Assign value into .env
-        run: echo "This is my old env object value, ${{ env.key }}"
-
-      - name: Print .env
-        env: 
-          REACT_APP_KEY: ${{ secrets.TEST_SECRET }}      
-        run: echo "This is my new env object value, ${{ env.REACT_APP_KEY }}"
+      - name: Print old .env
+        run: echo "This is my old env object value, ${{ env.REACT_APP_KEY }}"
 
       # - name: Generate Environment Variables File for Production
       #  run: |
@@ -57,6 +52,11 @@ jobs:
           find: "/static/js/main"
           replace: "static/js/main"
           include: "build/index.html"
+
+      - name: Assign new value into new .env and print it
+        env: 
+          REACT_APP_KEY: ${{ secrets.TEST_SECRET }}      
+        run: echo "This is my new env object value, ${{ env.REACT_APP_KEY }}"          
           
       - name: Deploy React Application to GitHub pages
         uses: peaceiris/actions-gh-pages@v3
