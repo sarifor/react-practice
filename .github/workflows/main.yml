@@ -33,7 +33,7 @@ jobs:
       - name: Assign value into .env
         env: 
           key: ${{ secrets.TEST_SECRET }}
-        run: echo 'This is my new env object: ${{ env.key }}'
+      - run: echo 'This is my new env object: ${{ env.key }}'
 
       # - name: Generate Environment Variables File for Production
       #  run: |
