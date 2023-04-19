@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import EventPractice from './EventPractice';
-import { config } from './apikeys.js';
 
 class App extends Component {
 
     _test = () => {
-        const key = config.TEST_KEY
+        const key = process.env.key
         console.log(key); // It's just an arbitrary setence for test commit
     }
 
