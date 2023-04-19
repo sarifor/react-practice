@@ -3,7 +3,7 @@ name: Automatically Deployment
 on: [push]
 
 env:
-  key: nothing
+  REACT_APP_KEY: nothing
 
 jobs:
   deployment:
@@ -35,8 +35,8 @@ jobs:
 
       - name: Print .env
         env: 
-          key: ${{ secrets.TEST_SECRET }}      
-        run: echo "This is my new env object value, ${{ env.key }}"
+          REACT_APP_KEY: ${{ secrets.TEST_SECRET }}      
+        run: echo "This is my new env object value, ${{ env.REACT_APP_KEY }}"
 
       # - name: Generate Environment Variables File for Production
       #  run: |
