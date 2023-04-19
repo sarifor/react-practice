@@ -31,11 +31,12 @@ jobs:
           node-version: '14'
 
       - name: Assign value into .env
+        run: echo "This is my old env object value, ${{ env.key }}"
         env: 
           key: ${{ secrets.TEST_SECRET }}
 
       - name: Print .env
-        run: echo "This is my new env object, ${{ env.key }}"
+        run: echo "This is my new env object value, ${{ env.key }}"
 
       # - name: Generate Environment Variables File for Production
       #  run: |
