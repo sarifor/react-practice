@@ -2,6 +2,9 @@ name: Automatically Deployment
 
 on: [push]
 
+env:
+  key: nothing
+
 jobs:
   deployment:
     permissions:
@@ -27,11 +30,16 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Generate Environment Variables File for Production
-        run: |
-          echo "TEST_SECRET=$TEST_SECRET" >> .env.production
-        env:
-          TEST_SECRET: ${{ secrets.TEST_SECRET }}
+      - name: Assign value into .env
+        env: 
+          key: ${{ secrets.TEST_SECRET }}
+        run: echo 'This is my new env object: ${{ env.key }}'
+
+      # - name: Generate Environment Variables File for Production
+      #  run: |
+      #    echo "TEST_SECRET=$TEST_SECRET" >> .env.production
+      #  env:
+      #    TEST_SECRET: ${{ secrets.TEST_SECRET }}
 
       - name: Install Dependencies
         run: |
