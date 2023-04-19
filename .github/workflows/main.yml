@@ -3,7 +3,7 @@ name: Automatically Deployment
 on: [push]
 
 env:
-  REACT_APP_KEY: nothing
+  REACT_APP_KEY: old
 
 jobs:
   deployment:
