@@ -2,9 +2,6 @@ name: Automatically Deployment
 
 on: [push]
 
-env:
-  REACT_APP_KEY: ${{ secrets.TEST_SECRET }}
-
 jobs:
   deployment:
     permissions:
@@ -30,8 +27,14 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Show .env.production
-        run: echo ${{env.production.REACT_APP_KEY}}
+      - name: Generate Environmet Variables File for Production
+        run: |
+          echo "REACT_APP_KEY=$REACT_APP_KEY" >> .env.production
+        env:
+          REACT_APP_KEY: ${{ secrets.TEST_SECRET }}
+ 
+      - name: Show .env for Production
+        run: echo ${{env.REACT_APP_KEY}}
 
       - name: Install Dependencies
         run: |
