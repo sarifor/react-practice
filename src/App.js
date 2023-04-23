@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
-import EventPractice from './EventPractice';
 
 class App extends Component {
 
     _test = () => {
-        console.log(process.env.REACT_APP_KEY);
+        console.log("Now in April");
     }
 
     render() {
         return (
             <>
                 {this._test()}
-                <EventPractice />
             </>
         );
     }
