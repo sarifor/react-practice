@@ -14,7 +14,7 @@ class App extends Component {
     }
 
     _callApi = async () => {
-        const data = await fetch(`http://localhost:3000/`)
+        const data = await fetch(`http://34.27.35.62:3000/`)
             .then(response => response.json())
             .catch(error => {
                 console.log(error);
