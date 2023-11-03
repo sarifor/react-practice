@@ -8,7 +8,7 @@ class App extends React.Component {
   };
 
   increase() {
-    this.setState((current) => ({ num: current.num + 1 })); {/* TypeError: Cannot read properties of undefined (reading 'setState') */}
+    this.setState((current) => ({ num: current.num + 1 }));
     console.log('increase 메서드의 this는 ', this); // increase 메서드의 this는  App {props: {…}, context: {…}, refs: {…}, updater: {…}, state: {…}, …}
   }
 
@@ -17,7 +17,7 @@ class App extends React.Component {
       <div>
         <h1>Class Component this</h1>
         <h2>{this.state.num}</h2>
-        <button onClick={this.increase.bind(this)}>Increase</button> {/* 기존 increase 메서드에 render()의 this인 App을 바인딩함 */}
+        <button onClick={() => this.increase()}>Increase</button> {/* 화살표 함수가 상위 스코프인 render() 메서드의 this인 App을 바인딩해 줌 */}
       </div>
     );
   }
