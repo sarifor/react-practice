@@ -8,7 +8,7 @@ class App extends React.Component {
   };
 
   increase() {
-    this.setState((current) => ({ num: current.num + 1 }));
+    this.setState((current) => ({ num: current.num + 1 })); {/* TypeError: Cannot read properties of undefined (reading 'setState') */}
     console.log('increase 메서드의 this는 ', this);
   }
 
@@ -17,7 +17,7 @@ class App extends React.Component {
       <div>
         <h1>Class Component this</h1>
         <h2>{this.state.num}</h2>
-        <button onClick={this.increase}>Increase</button> {/* TypeError: Cannot read properties of undefined (reading 'setState') */}
+        <button onClick={this.increase}>Increase</button>
       </div>
     );
   }
