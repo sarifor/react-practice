@@ -8,8 +8,8 @@ class App extends React.Component {
   };
 
   increase() {
-    this.setState((current) => ({ num: current.num + 1 })); {/* TypeError: Cannot read properties of undefined (reading 'setState') */}
-    console.log('increase 메서드의 this는 ', this);
+    // this.setState((current) => ({ num: current.num + 1 })); {/* TypeError: Cannot read properties of undefined (reading 'setState') */}
+    console.log('increase 메서드의 this는 ', this); // increase 메서드의 this는  undefined
   }
 
   render() {
